@@ -7,12 +7,14 @@ import { PurchaseService } from './services/purchase.service';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewPurchaseComponent } from './components/view-purchase/view-purchase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    ViewPurchaseComponent
   ],
   imports: [
     BrowserModule,

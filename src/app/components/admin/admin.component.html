@@ -8,7 +8,7 @@
     </tr>
     <tr *ngFor="let purchase of purchases">
       <td>
-        {{purchase.name}}
+        <a [routerLink]="['/admin/view/', purchase.id]">{{purchase.name}}</a>
       </td>
       <td>
         {{purchase.email}}

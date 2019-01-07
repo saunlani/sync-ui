@@ -14,15 +14,15 @@ export class PurchaseService {
   constructor(private http:HttpClient) { }
 
   getPurchases() {
-    return this.http.get('/server/api/v1/purchases/')
+    return this.http.get('/server/api/v1/purchases/');
   }
 
   getPurchase(id: number) {
-    return this.http.get('/server/api/v1/purchases/'+ id)
+    return this.http.get('/server/api/v1/purchases/'+ id);
   }
 
   createPurchase(purchase) {
     let body = JSON.stringify(purchase);
-    return this.http.post('/server/api/v1/purchases', body, httpOptions)
+    return this.http.post('/server/api/v1/purchases', body, httpOptions);
   }
 }

@@ -8,13 +8,17 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewPurchaseComponent } from './components/view-purchase/view-purchase.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     HomeComponent,
-    ViewPurchaseComponent
+    ViewPurchaseComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,7 @@ import { ViewPurchaseComponent } from './components/view-purchase/view-purchase.
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [PurchaseService],
+  providers: [PurchaseService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

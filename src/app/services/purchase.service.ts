@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 
 const httpOptions = { 
@@ -14,12 +14,20 @@ export class PurchaseService {
   constructor(private http:HttpClient) { }
 
   getPurchases() {
-    return this.http.get('/server/api/v1/purchases/');
+    let token = localStorage.getItem('access_token');
+    return this.http.get('/server/api/v1/purchases',
+    {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
+    );
   }
 
   getPurchase(id: number) {
-    return this.http.get('/server/api/v1/purchases/'+ id);
+    let token = localStorage.getItem('access_token');
+    return this.http.get('/server/api/v1/purchases/'+ id,
+    {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
+    );
   }
+
+
 
   createPurchase(purchase) {
     let body = JSON.stringify(purchase);
